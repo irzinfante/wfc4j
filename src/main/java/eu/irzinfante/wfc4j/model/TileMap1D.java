@@ -62,6 +62,7 @@ public class TileMap1D<T> {
 	 *
 	 * @param	tile The given tile for which to get the possible adjacent tiles
 	 * @param	side The side of the given tile from which to get the possible adjacent tiles
+	 * @return	Set of tiles that can be adjacent to the provided tile from the selected side
 	 * @throws	TileException If the given tile is not in present in the tilemap's tileset
 	 * 
 	 * @since	0.1.0
@@ -102,6 +103,7 @@ public class TileMap1D<T> {
 	 * @param	tile The given tile for which to add the possible adjacent tile
 	 * @param	side The side of the given tile for which to add the possible adjacent tile
 	 * @param	adjacent A single tile to be added to the possible adjacent tiles for the given tile
+	 * @return	true if the adjacent tile to be added was not already contained in the set of adjacent sets
 	 * @throws	TileException If the given tile or the potential adjacent tile to be added are not in present in the tilemap's tileset
 	 * 
 	 * @since	0.1.0

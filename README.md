@@ -11,7 +11,7 @@ To use the ```wfc4j``` library in your Java project, you can include the library
 <dependency>
     <groupId>eu.irzinfante</groupId>
     <artifactId>wfc4j</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
@@ -45,4 +45,4 @@ You should have received a copy of the GNU General Public License along with thi
 
 ## Acknowledgments
 
-The ```wfc4j``` library is inspired on Dan Shiffman's [Coding Challenge 171: Wave Function Collapse](https://youtu.be/rI_y2GAlQFM) video idea.
+The ```wfc4j``` library is inspired on Dan Shiffman's [Coding Challenge 171: Wave Function Collapse](https://youtu.be/rI_y2GAlQFM) video, which is based on the original [Wave Function Collapse Algorithm](https://github.com/mxgmn/WaveFunctionCollapse) developed by Maxim Gumin.

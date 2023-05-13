@@ -50,6 +50,7 @@ public class Cell1D<T> implements Comparable<Cell1D<T>> {
 	 * Returns the set intersection between the cell's current entropy and the intersectant set of tiles
 	 *
 	 * @param	intersectant The set of tiles to be intersected with the cell's current entropy
+	 * @return	The set intersection between the current cell entropy and the intersectant set
 	 * 
 	 * @since	0.1.0
 	 */
