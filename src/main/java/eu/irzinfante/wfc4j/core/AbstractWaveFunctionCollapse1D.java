@@ -106,6 +106,7 @@ abstract public class AbstractWaveFunctionCollapse1D<T> {
 	/**
 	 * Runs the WFC algorithm to populate the tile values for the cells of the grid
 	 * 
+	 * @return	A copy of the grid populated with tiles
 	 * @throws	TileException If exception occurs at the time of getting the adjacent tiles for some cell's value
 	 * 
 	 * @since	0.1.0
@@ -118,6 +119,7 @@ abstract public class AbstractWaveFunctionCollapse1D<T> {
 	 * Runs the WFC algorithm to populate the tile values for the cells of the grid until the specified recursion level
 	 * 
 	 * @param	maxDeepth Maximum level of recursion
+	 * @return	A copy of the grid populated with tiles
 	 * @throws	TileException If exception occurs at the time of getting the adjacent tiles for some cell's value
 	 * 
 	 * @since	0.1.0
