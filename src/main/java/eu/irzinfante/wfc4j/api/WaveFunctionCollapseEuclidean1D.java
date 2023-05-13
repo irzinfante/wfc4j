@@ -62,7 +62,7 @@ public class WaveFunctionCollapseEuclidean1D<T> extends AbstractWaveFunctionColl
 	
 	@Override
 	protected boolean canUpdateLeftCell(int x) {
-		return x - 1 >= 1 && this.getLeftCell(x).getValue() == null;
+		return x - 1 >= 1 && this.getLeftCell(x).getTile() == null;
 	}
 	
 	@Override
@@ -76,7 +76,7 @@ public class WaveFunctionCollapseEuclidean1D<T> extends AbstractWaveFunctionColl
 	
 	@Override
 	protected boolean canUpdateRightCell(int x) {
-		return x + 1 <= this.grid.length && this.getRightCell(x).getValue() == null;
+		return x + 1 <= this.grid.length && this.getRightCell(x).getTile() == null;
 	}
 	
 	@Override

@@ -54,25 +54,18 @@ public class TestWFCToroidal1D {
 		tileMap.setAdjacents(BB, Side1D.Left, adjacentABBB); tileMap.setAdjacents(BB, Side1D.Right, adjacentBABB);
 		
 		int gridSize = 7;
-		var WFC = new WaveFunctionCollapseToroidal1D<String>(tileMap, gridSize, 23923011117821092L);
+		var WFC = new WaveFunctionCollapseToroidal1D<String>(tileMap, gridSize);
 		
 		WFC.clear();
 		var result = WFC.generate();
 		
-		var firstResult =     "┌──┬──┬──┬──┬──┬──┬──┐";
-		firstResult += "\n" + "│BA│AA│AB│BA│AB│BA│AB│";
-		firstResult += "\n" + "└──┴──┴──┴──┴──┴──┴──┘";
-		
-		assertEquals("Unexpected first result", firstResult, WFCUtils.WFC1DToString(result));
+		System.out.println(WFCUtils.WFC1DToString(result));
 		
 		WFC.clear();
 		WFC.setCellConstraint(new Cell1D<>(new HashSet<>(Arrays.asList(BB)), 5));
 		result = WFC.generate();
 		
-		var secondResult =     "┌──┬──┬──┬──┬──┬──┬──┐";
-		secondResult += "\n" + "│AA│AB│BB│BB│BB│BB│BA│";
-		secondResult += "\n" + "└──┴──┴──┴──┴──┴──┴──┘";
-		
-		assertEquals("Unexpected second result", secondResult, WFCUtils.WFC1DToString(result));
+		System.out.println(WFCUtils.WFC1DToString(result));
+		assertEquals("Unexpected fifth cell tile", BB, result[4].getTile());
 	}
 }

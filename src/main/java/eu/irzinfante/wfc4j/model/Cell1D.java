@@ -29,7 +29,7 @@ import java.util.HashSet;
 public class Cell1D<T> implements Comparable<Cell1D<T>> {
 
 	private Set<Tile<T>> entropy;
-	private Tile<T> value;
+	private Tile<T> tile;
 	private int x;
 	
 	/**
@@ -42,7 +42,7 @@ public class Cell1D<T> implements Comparable<Cell1D<T>> {
 	 */
 	public Cell1D(Set<Tile<T>> entropy, int x) {
 		this.entropy = entropy;
-		this.value = null;
+		this.tile = null;
 		this.x = x;
 	}
 	
@@ -67,12 +67,12 @@ public class Cell1D<T> implements Comparable<Cell1D<T>> {
 		this.entropy = entropy;
 	}
 	
-	public Tile<T> getValue() {
-		return this.value;
+	public Tile<T> getTile() {
+		return this.tile;
 	}
 	
-	public void setValue(Tile<T> value) {
-		this.value = value;
+	public void setTile(Tile<T> tile) {
+		this.tile = tile;
 	}
 	
 	public int getX() {

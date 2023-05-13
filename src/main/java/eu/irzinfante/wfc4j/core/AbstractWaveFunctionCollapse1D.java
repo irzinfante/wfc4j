@@ -91,7 +91,7 @@ abstract public class AbstractWaveFunctionCollapse1D<T> {
 	 */
 	public void setCellConstraint(Cell1D<T> cell) throws DimensionException {
 		
-		if(cell != null && cell.getValue() == null && !cell.getEntropy().isEmpty()) {
+		if(cell != null && cell.getTile() == null && !cell.getEntropy().isEmpty()) {
 			
 			var x = cell.getX();
 			if(x < 1 || x > this.grid.length) {
@@ -161,7 +161,7 @@ abstract public class AbstractWaveFunctionCollapse1D<T> {
 	
 				cell.setEntropy(new HashSet<Tile<T>>());
 				for(var tile : options) {
-					cell.setValue(tile);
+					cell.setTile(tile);
 					
 					if(this.updateAdjacentCellsEntropy(cell)) {
 						
@@ -182,7 +182,7 @@ abstract public class AbstractWaveFunctionCollapse1D<T> {
 				}
 				
 				cell.setEntropy(entropy);
-				cell.setValue(null);
+				cell.setTile(null);
 			}
 			
 			this.deepth--;
@@ -200,7 +200,7 @@ abstract public class AbstractWaveFunctionCollapse1D<T> {
 		
 		var newEntropyLeft = new HashSet<Tile<T>>();
 		if(valid && this.canUpdateLeftCell(x)) {
-			newEntropyLeft.addAll(this.getLeftCell(x).getReducedEntropy(this.tileMap.getAdjacents(currentCell.getValue(), Side1D.Left)));
+			newEntropyLeft.addAll(this.getLeftCell(x).getReducedEntropy(this.tileMap.getAdjacents(currentCell.getTile(), Side1D.Left)));
 			if(newEntropyLeft.isEmpty()) {
 				valid = false;
 			}
@@ -208,7 +208,7 @@ abstract public class AbstractWaveFunctionCollapse1D<T> {
 		
 		var newEntropyRight = new HashSet<Tile<T>>();
 		if(valid && this.canUpdateRightCell(x)) {
-			newEntropyRight.addAll(this.getRightCell(x).getReducedEntropy(this.tileMap.getAdjacents(currentCell.getValue(), Side1D.Right)));
+			newEntropyRight.addAll(this.getRightCell(x).getReducedEntropy(this.tileMap.getAdjacents(currentCell.getTile(), Side1D.Right)));
 			if(newEntropyRight.isEmpty()) {
 				valid = false;
 			}

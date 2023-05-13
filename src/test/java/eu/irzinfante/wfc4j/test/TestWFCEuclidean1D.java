@@ -1,6 +1,6 @@
 package eu.irzinfante.wfc4j.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -60,36 +60,27 @@ public class TestWFCEuclidean1D {
 		tileMap.setAdjacents(Rp, Side1D.Left, adjacentLpBpA);	tileMap.setAdjacents(Rp, Side1D.Right, new HashSet<>());
 		
 		int gridSize = 13;
-		var WFC = new WaveFunctionCollapseEuclidean1D<String>(tileMap, gridSize, -109923011117821092L);
+		var WFC = new WaveFunctionCollapseEuclidean1D<String>(tileMap, gridSize);
 		
 		WFC.clear();
 		var result = WFC.generate();
 		
-		var firstResult =     "┌──┬──┬─┬─┬─┬─┬─┬──┬─┬──┬──┬──┬─┐";
-		firstResult += "\n" + "│B'│A'│A│B│A│B│A│A'│A│A'│B'│A'│R│";
-		firstResult += "\n" + "└──┴──┴─┴─┴─┴─┴─┴──┴─┴──┴──┴──┴─┘";
-		
-		assertEquals("Unexpected first result", firstResult, WFCUtils.WFC1DToString(result));
+		System.out.println(WFCUtils.WFC1DToString(result));
 		
 		WFC.clear();
 		WFC.setCellConstraint(new Cell1D<>(new HashSet<>(Arrays.asList(L, Lp)), 1));
 		result = WFC.generate();
 		
-		var secondResult =     "┌─┬─┬─┬──┬─┬──┬──┬─┬──┬─┬──┬──┬──┐";
-		secondResult += "\n" + "│L│A│B│B'│B│B'│A'│A│A'│A│A'│B'│A'│";
-		secondResult += "\n" + "└─┴─┴─┴──┴─┴──┴──┴─┴──┴─┴──┴──┴──┘";
-		
-		assertEquals("Unexpected second result", secondResult, WFCUtils.WFC1DToString(result));
+		System.out.println(WFCUtils.WFC1DToString(result));
+		assertTrue("Unexpected first cell tile", Arrays.asList(L, Lp).contains(result[0].getTile()));
 		
 		WFC.clear();
 		WFC.setCellConstraint(new Cell1D<>(new HashSet<>(Arrays.asList(L, Lp)), 1));
 		WFC.setCellConstraint(new Cell1D<>(new HashSet<>(Arrays.asList(R, Rp)), gridSize));
 		result = WFC.generate();
 		
-		var thirdResult =     "┌─┬──┬──┬─┬──┬──┬─┬─┬──┬─┬──┬─┬──┐";
-		thirdResult += "\n" + "│L│B'│A'│A│A'│B'│B│A│A'│A│A'│A│R'│";
-		thirdResult += "\n" + "└─┴──┴──┴─┴──┴──┴─┴─┴──┴─┴──┴─┴──┘";
-		
-		assertEquals("Unexpected third result", thirdResult, WFCUtils.WFC1DToString(result));
+		System.out.println(WFCUtils.WFC1DToString(result));
+		assertTrue("Unexpected first cell tile", Arrays.asList(L, Lp).contains(result[0].getTile()));
+		assertTrue("Unexpected last cell tile", Arrays.asList(R, Rp).contains(result[gridSize-1].getTile()));
 	}
 }

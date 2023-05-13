@@ -62,7 +62,7 @@ public class WaveFunctionCollapseToroidal1D<T> extends AbstractWaveFunctionColla
 	
 	@Override
 	protected boolean canUpdateLeftCell(int x) {
-		return this.getLeftCell(x).getValue() == null;
+		return this.getLeftCell(x).getTile() == null;
 	}
 	
 	@Override
@@ -76,7 +76,7 @@ public class WaveFunctionCollapseToroidal1D<T> extends AbstractWaveFunctionColla
 	
 	@Override
 	protected boolean canUpdateRightCell(int x) {
-		return this.getRightCell(x).getValue() == null;
+		return this.getRightCell(x).getTile() == null;
 	}
 	
 	@Override

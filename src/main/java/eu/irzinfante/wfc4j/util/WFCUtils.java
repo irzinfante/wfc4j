@@ -20,7 +20,7 @@ public final class WFCUtils {
 		var cellsRepr = new StringBuilder("│");
 		var bottomBorder = new StringBuilder("└");
 		for(int i = 0; i < grid.length; i++) {
-			var cellTile = grid[i].getValue();
+			var cellTile = grid[i].getTile();
 			var value = cellTile == null ? new String(" ") : cellTile.getValue().toString();
 			
 			topBorder.append("─".repeat(value.length()));
