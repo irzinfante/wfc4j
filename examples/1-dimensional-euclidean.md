@@ -83,7 +83,7 @@ We will perform 3 executions of the `generate` function in order:
   System.out.println(WFCUtils.WFC1DToString(result));
   ```
 
-  <img src="../assets/1-dimensional-euclidean/B'.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/B.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/B.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/B'.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/R.png">
+  <img src="../assets/1-dimensional-euclidean/result1.png">
 
 - In the second one we will impose some constraint on the left end:
 
@@ -98,7 +98,7 @@ We will perform 3 executions of the `generate` function in order:
   System.out.println(WFCUtils.WFC1DToString(result));
   ```
 
-  <img src="../assets/1-dimensional-euclidean/L.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/B.png"><img src="../assets/1-dimensional-euclidean/B'.png"><img src="../assets/1-dimensional-euclidean/B.png"><img src="../assets/1-dimensional-euclidean/B'.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/B'.png"><img src="../assets/1-dimensional-euclidean/A'.png">
+  <img src="../assets/1-dimensional-euclidean/result2.png">
 
 - In the third one we will impose constraints in both ends:
 
@@ -111,6 +111,4 @@ We will perform 3 executions of the `generate` function in order:
   System.out.println(WFCUtils.WFC1DToString(result));
   ```
 
-  <img src="../assets/1-dimensional-euclidean/L.png"><img src="../assets/1-dimensional-euclidean/B'.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/B'.png"><img src="../assets/1-dimensional-euclidean/B.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/A'.png"><img src="../assets/1-dimensional-euclidean/A.png"><img src="../assets/1-dimensional-euclidean/R'.png">
-
-Following this examples, and designing other tiles and adjacencies, one can play with wfc4j library to generate very diverse braids (topology). For more information about braids you can follow this [link (Braid - Wolfram MathWorld)](https://mathworld.wolfram.com/Braid.html) and DYOR.
+  <img src="../assets/1-dimensional-euclidean/result3.png">

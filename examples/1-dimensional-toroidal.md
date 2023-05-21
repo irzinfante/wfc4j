@@ -75,7 +75,7 @@ We will perform 2 executions of the `generate` function in order:
   System.out.println(WFCUtils.WFC1DToString(result));
   ```
 
-  <img src="../assets/1-dimensional-toroidal/BA.png"><img src="../assets/1-dimensional-toroidal/AA.png"><img src="../assets/1-dimensional-toroidal/AB.png"><img src="../assets/1-dimensional-toroidal/BA.png"><img src="../assets/1-dimensional-toroidal/AB.png"><img src="../assets/1-dimensional-toroidal/BA.png"><img src="../assets/1-dimensional-toroidal/AB.png">
+  <img src="../assets/1-dimensional-toroidal/result1.png">
 
 - In the second one we will impose some constraint on the fifth cell:
 
@@ -90,6 +90,4 @@ We will perform 2 executions of the `generate` function in order:
   System.out.println(WFCUtils.WFC1DToString(result));
   ```
 
-  <img src="../assets/1-dimensional-toroidal/AA.png"><img src="../assets/1-dimensional-toroidal/AB.png"><img src="../assets/1-dimensional-toroidal/BB.png"><img src="../assets/1-dimensional-toroidal/BB.png"><img src="../assets/1-dimensional-toroidal/BB.png"><img src="../assets/1-dimensional-toroidal/BB.png"><img src="../assets/1-dimensional-toroidal/BA.png">
-
-Following this examples, and designing other tiles and adjacencies, one can play with wfc4j library to generate very diverse types of rings, bands, bracelets, etc.
+  <img src="../assets/1-dimensional-toroidal/result2.png">
