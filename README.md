@@ -11,7 +11,7 @@ To use the ```wfc4j``` library in your Java project, you can include the library
 <dependency>
     <groupId>eu.irzinfante</groupId>
     <artifactId>wfc4j</artifactId>
-    <version>0.1.1</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
@@ -24,6 +24,9 @@ Here are some examples that demonstrate the usage of the different API of the li
 - 1-dimensional:
     - [Euclidean (linear grid)](examples/1-dimensional-euclidean.md)
     - [Toroidal (cyclic grid)](examples/1-dimensional-toroidal.md)
+- 2-dimensional:
+    - [Euclidean (planar grid)](examples/2-dimensional-euclidean.md)
+    - [Toroidal (toroidal grid)](examples/2-dimensional-toroidal.md)
 
 ## Contributing
 
