@@ -7,11 +7,10 @@ The ```wfc4j``` library is a Java library that provides an implementation of the
 To use the ```wfc4j``` library in your Java project, you can include the library as a dependency in your build configuration. Here's an example of how to do it with Maven:
 
 ```xml
-<!-- https://mvnrepository.com/artifact/eu.irzinfante/wfc4j -->
 <dependency>
-    <groupId>eu.irzinfante</groupId>
+    <groupId>dev.irzinfante</groupId>
     <artifactId>wfc4j</artifactId>
-    <version>0.2.0</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -28,23 +27,17 @@ Here are some examples that demonstrate the usage of the different API of the li
     - [Euclidean (planar grid)](examples/2-dimensional-euclidean.md)
     - [Toroidal (toroidal grid)](examples/2-dimensional-toroidal.md)
 
-## Contributing
-
-Contributions to the ```wfc4j``` library are welcome! If you encounter any issues or have ideas for improvements, please submit them in the issue tracker of the repository.
-
-If you want to contribute code, please fork the repository, create a new branch for your changes, and submit a pull request when you're ready.
-
 ## License
 
-Copyright (C) 2023 Iker Ruiz de Infante Gonzalez iker@irzinfante.eu
+Copyright (C) 2023-2024 Iker Ruiz de Infante Gonzalez iker@irzinfante.dev
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-[LICENSE](LICENSE) contains a copy of the full GPLv3 licensing conditions.
+[LICENSE](LICENSE) contains a copy of the full AGPLv3 licensing conditions.
 
 ## Acknowledgments
 

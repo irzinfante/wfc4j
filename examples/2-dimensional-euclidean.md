@@ -8,7 +8,7 @@ Let's see how to use the wfc4j library to generate a planar pattern. These are t
 
 ```java
 import java.util.HashSet;
-import eu.irzinfante.wfc4j.model.Tile;
+import dev.irzinfante.wfc4j.model.Tile;
 
 Tile<String> NE = new Tile<>("NE"), NW = new Tile<>("NW"), SE = new Tile<>("SE"), SW = new Tile<>("SW");
 
@@ -27,8 +27,8 @@ So, the logical adjacencies between tiles are the following:
 |<img src="../assets/2-dimensional-euclidean/SW.png">|<img src="../assets/2-dimensional-euclidean/NE.png"> $~~~~$ <img src="../assets/2-dimensional-euclidean/SE.png">|<img src="../assets/2-dimensional-euclidean/NE.png"> $~~~~$ <img src="../assets/2-dimensional-euclidean/SE.png">|<img src="../assets/2-dimensional-euclidean/NE.png"> $~~~~$ <img src="../assets/2-dimensional-euclidean/NW.png">|<img src="../assets/2-dimensional-euclidean/NE.png"> $~~~~$ <img src="../assets/2-dimensional-euclidean/NW.png">|
 
 ```java
-import eu.irzinfante.wfc4j.model.TileMap2D;
-import eu.irzinfante.wfc4j.enums.Side2D;
+import dev.irzinfante.wfc4j.model.TileMap2D;
+import dev.irzinfante.wfc4j.enums.Side2D;
 
 var adjacentNWSW = new HashSet<Tile<String>>();
 adjacentNWSW.add(NW); adjacentNWSW.add(SW);
@@ -57,26 +57,21 @@ tileMap.setAdjacents(SW, Side2D.Left, adjacentNESE);	tileMap.setAdjacents(SW, Si
 tileMap.setAdjacents(SW, Side2D.Bottom, adjacentNENW);	tileMap.setAdjacents(SW, Side2D.Top, adjacentNENW);
 ```
 
-Now we can instantiate the API class with an 8 by 6 grid:
+Now we can instantiate the API class with an 6 by 8 grid:
 
 ```java
-import eu.irzinfante.wfc4j.api.WaveFunctionCollapseEuclidean2D;
+import dev.irzinfante.wfc4j.api.EuclideanWFC2D;
 
-int gridSizeX = 8, gridSizeY = 6;
-var WFC = new WaveFunctionCollapseEuclidean2D<String>(tileMap, gridSizeX, gridSizeY, 148576907989080L);
+int gridSizeX = 6, gridSizeY = 8;
 ```
 
-We will perform 2 executions of the `generate` function in order:
+We will run 2 examples:
 
 - For the first one we won't impose any restriction:
 
   ```java
-  import eu.irzinfante.wfc4j.util.WFCUtils;
-
-  WFC.clear();
-  var result = WFC.generate();
-
-  System.out.println(WFCUtils.WFC2DToString(result));
+  var WFC_1 = new EuclideanWFC2D<String>(tileMap, gridSizeX, gridSizeY);
+  WFC_1.run();
   ```
 
   <img src="../assets/2-dimensional-euclidean/result1.png">
@@ -84,15 +79,15 @@ We will perform 2 executions of the `generate` function in order:
 - For the second one we will impose some constraint on the center of the grid:
 
   ```java
+  import java.util.Set;
   import java.util.Arrays;
-  import eu.irzinfante.wfc4j.model.Cell2D;
 
-  WFC.clear();
-  WFC.setCellConstraint(new Cell2D<>(new HashSet<>(Arrays.asList(SE)), 4, 3));
-  WFC.setCellConstraint(new Cell2D<>(new HashSet<>(Arrays.asList(NW)), 5, 4));
-  result = WFC.generate();
+  var entropy = new HashMap<Integer[], Set<Tile<String>>>();
+  entropy.put(new Integer[]{2, 3}, new HashSet<>(Arrays.asList(NW)));
+  entropy.put(new Integer[]{3, 4}, new HashSet<>(Arrays.asList(SE)));
 
-  System.out.println(WFCUtils.WFC2DToString(result));
+  var WFC_2 = new EuclideanWFC2D<String>(tileMap, gridSizeX, gridSizeY, entropy);
+  WFC_2.run();
   ```
 
   <img src="../assets/2-dimensional-euclidean/result2.png">
