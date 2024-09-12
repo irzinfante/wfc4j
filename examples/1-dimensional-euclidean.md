@@ -8,7 +8,7 @@ Let's see how to use the wfc4j library to generate a linear pattern. These are t
 
 ```java
 import java.util.HashSet;
-import eu.irzinfante.wfc4j.model.Tile;
+import dev.irzinfante.wfc4j.model.Tile;
 
 Tile<String> L  = new Tile<>("L") , A  = new Tile<>("A") , B  = new Tile<>("B") , R  = new Tile<>("R");
 Tile<String> Lp = new Tile<>("L'"), Ap = new Tile<>("A'"), Bp = new Tile<>("B'"), Rp = new Tile<>("R'");
@@ -33,8 +33,8 @@ So, the logical adjacencies between tiles are the following:
 |<img src="../assets/1-dimensional-euclidean/L'.png"> $~~~~$ <img src="../assets/1-dimensional-euclidean/B'.png"> $~~~~$ <img src="../assets/1-dimensional-euclidean/A.png">|<img src="../assets/1-dimensional-euclidean/R'.png">|                        |
 
 ```java
-import eu.irzinfante.wfc4j.model.TileMap1D;
-import eu.irzinfante.wfc4j.enums.Side1D;
+import dev.irzinfante.wfc4j.model.TileMap1D;
+import dev.irzinfante.wfc4j.enums.Side1D;
 
 var adjacentABpR = new HashSet<Tile<String>>();
 adjacentABpR.add(A); adjacentABpR.add(Bp); adjacentABpR.add(R);
@@ -61,26 +61,21 @@ tileMap.setAdjacents(Bp, Side1D.Left, adjacentLBAp);    tileMap.setAdjacents(Bp,
 tileMap.setAdjacents(Rp, Side1D.Left, adjacentLpBpA);   tileMap.setAdjacents(Rp, Side1D.Right, new HashSet<>());
 ```
 
-Now we can instantiate the API class with a 13 elements long grid:
+Now we can instantiate the API class with a 7 elements long grid:
 
 ```java
-import eu.irzinfante.wfc4j.api.WaveFunctionCollapseEuclidean1D;
+import dev.irzinfante.wfc4j.api.EuclideanWFC1D;
 
-int gridSize = 13;
-var WFC = new WaveFunctionCollapseEuclidean1D<String>(tileMap, gridSize, -109923011117821092L);
+var gridSize = 7;
 ```
 
-We will perform 3 executions of the `generate` function in order:
+We will run 3 examples:
 
 - For the first one we won't impose any restriction:
 
   ```java
-  import eu.irzinfante.wfc4j.util.WFCUtils;
-
-  WFC.clear();
-  var result = WFC.generate();
-
-  System.out.println(WFCUtils.WFC1DToString(result));
+  var WFC_1 = new EuclideanWFC1D<String>(tileMap, gridSize);
+  WFC_1.run();
   ```
 
   <img src="../assets/1-dimensional-euclidean/result1.png">
@@ -88,14 +83,14 @@ We will perform 3 executions of the `generate` function in order:
 - In the second one we will impose some constraint on the left end:
 
   ```java
+  import java.util.Set;
   import java.util.Arrays;
-  import eu.irzinfante.wfc4j.model.Cell1D;
 
-  WFC.clear();
-  WFC.setCellConstraint(new Cell1D<>(new HashSet<>(Arrays.asList(L, Lp)), 1));
-  result = WFC.generate();
+  var entropy_start = new HashMap<Integer, Set<Tile<String>>>();
+  entropy_start.put(0, new HashSet<>(Arrays.asList(L, Lp)));
 
-  System.out.println(WFCUtils.WFC1DToString(result));
+  var WFC_2 = new EuclideanWFC1D<String>(tileMap, gridSize, entropy_start);
+  WFC_2.run();
   ```
 
   <img src="../assets/1-dimensional-euclidean/result2.png">
@@ -103,12 +98,12 @@ We will perform 3 executions of the `generate` function in order:
 - In the third one we will impose constraints in both ends:
 
   ```java
-  WFC.clear();
-  WFC.setCellConstraint(new Cell1D<>(new HashSet<>(Arrays.asList(L, Lp)), 1));
-  WFC.setCellConstraint(new Cell1D<>(new HashSet<>(Arrays.asList(R, Rp)), gridSize));
-  result = WFC.generate();
+  var entropy_both = new HashMap<Integer, Set<Tile<String>>>();
+  entropy_both.put(0, new HashSet<>(Arrays.asList(L, Lp)));
+  entropy_both.put(gridSize - 1, new HashSet<>(Arrays.asList(R, Rp)));
 
-  System.out.println(WFCUtils.WFC1DToString(result));
+  var WFC_3 = new EuclideanWFC1D<String>(tileMap, gridSize, entropy_both);
+  WFC_3.run();
   ```
 
   <img src="../assets/1-dimensional-euclidean/result3.png">
